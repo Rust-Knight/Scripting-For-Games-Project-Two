@@ -13,10 +13,15 @@ public class BattleSystem : MonoBehaviour
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
 
+    
+
     public BattleState state;
 
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
+
+    
+    
 
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
@@ -54,12 +59,14 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
+
+       
         bool isDead = enemyUnit.TakeDamge(playerUnit.damage);
 
         enemyHUD.SetHP(enemyUnit.CurrentHP);
         dialogueText.text = "Attack hit!";
 
-        yield return new WaitForSeconds(3F);
+        yield return new WaitForSeconds(2F);
 
         if (isDead)
         {
@@ -75,7 +82,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerHeal()
     {
-        playerUnit.Heal(10);
+        playerUnit.Heal(15);
 
         playerHUD.SetHP(playerUnit.CurrentHP);
         dialogueText.text = "Sanity restored!";
@@ -129,7 +136,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (state != BattleState.PLAYERTURN)
             return;
-
+        
         StartCoroutine(PlayerAttack());
     }
 

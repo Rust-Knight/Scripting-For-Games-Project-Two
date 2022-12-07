@@ -14,7 +14,7 @@ public class BattleHUD : MonoBehaviour
     public Gradient gradient;
     public Image fill;
 
-
+   
 
     public void SetHUD(Unit unit)
     {
@@ -42,4 +42,5 @@ public class BattleHUD : MonoBehaviour
 
         fill.color = gradient.Evaluate(hpSlider.normalizedValue);
     }
+    
 }

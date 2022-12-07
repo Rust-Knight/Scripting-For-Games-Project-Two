@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerTurnCardGameState : CardGameState
 {
-    [SerializeField] Text _playerTurnTextUI = null;
+    [SerializeField] Text _playerTurnTextUI = null; // Will take this code out of the game as it is not needed
 
     int _playerTurnCount = 0; 
 
@@ -15,7 +15,7 @@ public class PlayerTurnCardGameState : CardGameState
         _playerTurnTextUI.gameObject.SetActive(true);
 
         _playerTurnCount++;
-        _playerTurnTextUI.text = "Player Turn: " + _playerTurnCount.ToString();
+        //_playerTurnTextUI.text = "Player Turn: " + _playerTurnCount.ToString();
         // hook into events 
         StateMachine.Input.PressedConfirm += OnPressedConfirm;
     }
@@ -28,7 +28,7 @@ public class PlayerTurnCardGameState : CardGameState
 
         StateMachine.Input.PressedConfirm -= OnPressedConfirm; 
 
-        Debug.Log("Player Turn: Exiting...");
+       // Debug.Log("Player Turn: Exiting...");
     }
 
     void OnPressedConfirm()

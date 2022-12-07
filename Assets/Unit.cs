@@ -16,17 +16,20 @@ public class Unit : MonoBehaviour
     {
         CurrentHP -= dmg;
 
+
         if (CurrentHP <= 0)
             return true;
         else
             return false;
 
     }
-
+    
     public void Heal(int amount)
     {
         CurrentHP += amount;
         if (CurrentHP > maxHP)
             CurrentHP = maxHP;
     }
+
+
 }
